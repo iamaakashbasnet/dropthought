@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div
+    style="height: 70vh;"
+    class="d-flex flex-column justify-content-center align-items-center text-center"
+  >
+    <img class="img-fluid m-2" style="width: 10rem;" src="{% static 'img/logo.png' %}" alt="DropThought Logo" />
+    <h1>DropThought</h1>
+    <p>An open source minimalist microblogging platform.</p>
+    <div>
+      <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Signup</a>
+    </div>
+  </div>
+{% endblock content %}

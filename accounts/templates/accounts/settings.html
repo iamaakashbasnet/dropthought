@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<p class="lead fw-bold">Settings</p>
+
+<details class="my-3" open>
+  <summary class="pointer-event">Profile Information</summary>
+  <div class="my-3 ms-3">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <img class="rounded-circle mb-2" style="width:5rem;" src="{{ request.user.avatar.url }}" alt="Avatar">
+      {{ form|crispy }}
+      <button class="btn btn-light" type="submit">Update Settings</button>
+    </form>
+
+    <form action="" ></form>
+  </div>
+</details>
+
+<details class="my-3">
+  <summary class="pointer-event mb-2">Password</summary>
+  <div class="my-3 ms-3">
+    <form method="POST">
+      {% csrf_token %}
+      {{ pass_form|crispy }}
+      <button class="btn btn-light" type="submit">Update Password</button>
+    </form>
+  </div>
+</details>
+
+<details class="my-3">
+  <summary class="pointer-event mb-2">Account Actions</summary>
+  <div class="my-3 ms-3">
+    <a class="text-danger" href="{% url 'delete' %}">Delete my account</a>
+  </div>
+</details>
+{% endblock content %}

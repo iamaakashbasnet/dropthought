@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    <h4>Are you sure want to delete?</h4>
+    <br />
+    {% include 'feeds/shared/thought_component.html' %}
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-light" href="{% url 'feed-detail' object.id %}"">Cancel</a>
+  </form>
+{% endblock content %}

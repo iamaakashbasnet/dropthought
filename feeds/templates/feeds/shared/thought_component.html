@@ -1,0 +1,19 @@
+<article class="d-flex gap-3 mb-5">
+  <div class="border-end">
+    <img style="width: 3.5rem;" class="rounded-circle me-2" src="{{ thought.author.avatar.url }}" />
+  </div>
+  <div class="p-1">
+    <a
+      class="text-dark fw-bold"
+      href="{% url 'profile' thought.author.username %}"
+    >
+      {{ thought.author.first_name }} {{ thought.author.last_name }}
+    </a>
+    <p class="my-1">{{ thought.content }}</p>
+    <small class="text-secondary">{{ thought.date_posted|date:"F d, Y" }} |&nbsp;</small>
+    {% if thought.author == request.user %}
+      <small><a href="{% url 'feed-update' thought.id %}">Edit</a></small>&nbsp;&nbsp;.&nbsp;
+      <small><a href="{% url 'feed-delete' thought.id %}">Delete</a></small>
+    {% endif %}
+  </div>
+</article>

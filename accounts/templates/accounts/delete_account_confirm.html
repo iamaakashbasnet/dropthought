@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <p class="lead fw-bold text-danger">Do you really want to delete this account?</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-danger" type="submit">DELETE MY ACCOUNT</button>&nbsp;
+    <a class="btn btn-light" href="{% url 'settings' %}">Cancel</a>
+  </form>
+{% endblock content %}
