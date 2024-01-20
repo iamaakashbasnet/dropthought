@@ -3,3 +3,6 @@
 </p>
 <h3 align="center">DropThought</h3>
 <p align="center">An open source minimalist microblogging platform</p>
+
+<hr />
+<p>Learning how backend framework like Django works in general with server side rendering.</p>
